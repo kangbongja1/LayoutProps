@@ -13,10 +13,13 @@ const App = () => {
     </View>
     <ScrollView>
       <View>
-        <Button title="1"/>
-        <Button title="2"/>
-        <Button title="3"/>
-        <Button title="4"/>
+        <Button title="CHANGE FLEX DIRECTION"/>
+        <Button title="CHAGNE JUSTIFY CONTENT"/>
+        <Button title="CHAGNE ALIGN ITEMS"/>
+        <Button title="CHAGNE DIRECTION"/>
+        <Button title="CHAGNE FLEX WRAP"/>
+        <Button title="ADD SQUARE"/>
+        <Button title="DELETE SQUARE"/>
       </View>
 
     </ScrollView>
