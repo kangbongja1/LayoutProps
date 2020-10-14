@@ -4,6 +4,43 @@ import Constants from 'expo-constants';
 
 
 const App = () => {
+
+  const flexDirections = [
+    'row', 
+    'row-reverse', 
+    'column', 
+    'column-reverse'
+  ];
+
+  const justifyContents = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around',
+    'space-evenly',
+  ];
+
+  const alignItemsArr = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'stretch',
+    'baseline',
+  ];
+
+  const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
+
+  const directions = ['inherit', 'ltr', 'rtl'];
+
+  const [flexDirection, setFlexDirection] = useState(1);
+  const [justifyContent, setJustifyContent] = useState(0);
+  const [alignItems, setAlignItems] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [wrap, setWrap] = useState(0
+
+
+
   return (
     <>
       <View style={{ paddingTop: Constants.statusBarHeight}} />
