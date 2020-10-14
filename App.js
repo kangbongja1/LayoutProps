@@ -44,18 +44,17 @@ const App = () => {
       width: 50,
       height: 50,
       backgroundColor: randomHexColor(),
-            
     };
-    return <view style={sqStyle}/>;
-  }
+    return <View style={sqStyle} />;
+  };
 
-   
+  const [squares, setSquares] = useState([Square(), Square(), Square()]);
     
   return (
     <>
       <View style={{ paddingTop: Constants.statusBarHeight}} />
       <View style={[styles.container, styles.playingSpace]}>
-        
+      {squares.map(elem => elem)}
 
       </View>
       
@@ -137,10 +136,9 @@ const styles = StyleSheet.create({
 
 
 const randomHexColor = () => {
-  return '#000000'.replace(/0/g, ()=>{
-    return (~~(Math.random())*16).toString(16);
+  return '#000000'.replace(/0/g, () => {
+    return (~~(Math.random() * 16)).toString(16);
   });
-}
-
+};
 
 export default App;
