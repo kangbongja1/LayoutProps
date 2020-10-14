@@ -15,26 +15,48 @@ const App = () => {
       <ScrollView style={[styles.container]}>
         <View style={[styles.controlSpace]}>
           <View style={styles.buttonView}>            
-            <Button title="CHANGE FLEX DIRECTION"/>
+            <Button title="CHANGE FLEX DIRECTION"
+            onPress={() => 
+              console.log("test test test 1")
+            }
+          />
           </View>
           
           <View style={styles.buttonView}>            
-            <Button title="CHANGE JUSTIFY CONTENT"/>
+            <Button title="CHANGE JUSTIFY CONTENT" onPress={() => 
+              console.log("test test test 2")
+            }
+            />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE ALIGN ITEMS"/>
+            <Button title="CHANGE ALIGN ITEMS" onPress={() => 
+              console.log("test test test 3")
+            }
+            />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE DIRECTION"/>
+            <Button title="CHANGE DIRECTION" onPress={() => 
+              console.log("test test test 4")
+            }
+            />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE FLEX WRAP"/>
+            <Button title="CHANGE FLEX WRAP" onPress={() => 
+              console.log("test test test 5")
+            }
+            />
           </View>
           <View style={styles.buttonView}>
-            <Button title="ADD SQUARE"/>
+            <Button title="ADD SQUARE" onPress={() => 
+              console.log("test test test 6")
+            }
+            />
           </View>
           <View style={styles.buttonView}>
-            <Button title="DELETE SQUARE"/>
+            <Button title="DELETE SQUARE" onPress={() => 
+              console.log("test test test 7")
+            }
+            />
           </View>
         </View>
 
