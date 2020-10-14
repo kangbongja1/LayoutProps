@@ -5,13 +5,7 @@ import Constants from 'expo-constants';
 
 const App = () => {
 
-  const flexDirections = [
-    'row', 
-    'row-reverse', 
-    'column', 
-    'column-reverse'
-  ];
-
+  const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
   const justifyContents = [
     'flex-start',
     'flex-end',
@@ -20,7 +14,6 @@ const App = () => {
     'space-around',
     'space-evenly',
   ];
-
   const alignItemsArr = [
     'flex-start',
     'flex-end',
@@ -28,9 +21,7 @@ const App = () => {
     'stretch',
     'baseline',
   ];
-
   const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
-
   const directions = ['inherit', 'ltr', 'rtl'];
 
   const [flexDirection, setFlexDirection] = useState(0);
@@ -39,6 +30,35 @@ const App = () => {
   const [direction, setDirection] = useState(0);
   const [wrap, setWrap] = useState(0);
 
+  const hookedStyles = {
+    flexDirection: flexDirections[flexDirection],
+    justifyContent: justifyContents[justifyContent],
+    alignItems: alignItemsArr[alignItems],
+  }
+
+
+  /*
+  {
+                  //const [justifyContent, setJustifyContent] = useState(0);
+                  if (justifyContent == justifyContents.length - 1) {
+                    setJustifyContent(0);
+                  } else {
+                    setJustifyContent(justifyContent + 1);
+                  }
+                  
+                }
+  */
+
+  const changeSetting = (value, options, setterfunction) => {
+    if (value == options.length - 1) {
+      setterfunction(0);      
+    } else {
+      setterfunction(value + 1);
+    }
+    console.log(options[value]);
+  };
+ 
+  
   const Square = () => {
     const sqStyle = {
       width: 50,
@@ -49,12 +69,16 @@ const App = () => {
   };
 
   const [squares, setSquares] = useState([Square(), Square(), Square()]);
-    
+
   return (
     <>
       <View style={{ paddingTop: Constants.statusBarHeight}} />
-      <View style={[styles.container, styles.playingSpace]}>
-      {squares.map(elem => elem)}
+      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+        
+        <Text> hello </Text> 
+        <Text> Who </Text>
+        <Text> are </Text>
+        <Text> you </Text>
 
       </View>
       
@@ -62,46 +86,45 @@ const App = () => {
         <View style={[styles.controlSpace]}>
           <View style={styles.buttonView}>            
             <Button title="CHANGE FLEX DIRECTION"
-            onPress={() => 
-              console.log("test test test 1")
-            }
-          />
+              onPress={() => changeSetting(flexDirection, flexDirections, setFlexDirection)
+              }
+            />
           </View>
           
           <View style={styles.buttonView}>            
-            <Button title="CHANGE JUSTIFY CONTENT" onPress={() => 
-              console.log("test test test 2")
-            }
+            <Button title="CHANGE JUSTIFY CONTENT"
+              onPress={() => changeSetting(justifyContent, justifyContents, setJustifyContent)
+              }
             />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE ALIGN ITEMS" onPress={() => 
-              console.log("test test test 3")
-            }
+            <Button title="CHANGE ALIGN ITEMS"
+              onPress={() => changeSetting(alignItems, alignItemsArr, setAlignItems)                
+              }
             />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE DIRECTION" onPress={() => 
-              console.log("test test test 4")
-            }
+            <Button title="CHANGE DIRECTION"
+              onPress={() => console.log("press 4")                
+              }
             />
           </View>
           <View style={styles.buttonView}>
-            <Button title="CHANGE FLEX WRAP" onPress={() => 
-              console.log("test test test 5")
-            }
+            <Button title="CHANGE FLEX WRAP"
+              onPress={() => console.log("press 5")                
+              }
             />
           </View>
           <View style={styles.buttonView}>
-            <Button title="ADD SQUARE" onPress={() => 
-              console.log("test test test 6")
-            }
+            <Button title="ADD SQUARE"
+              onPress={() => console.log("press 6")                
+              }
             />
           </View>
           <View style={styles.buttonView}>
-            <Button title="DELETE SQUARE" onPress={() => 
-              console.log("test test test 7")
-            }
+            <Button title="DELETE SQUARE"
+              onPress={() => console.log("press 7")                
+              }
             />
           </View>
         </View>
@@ -133,7 +156,6 @@ const styles = StyleSheet.create({
     padding: 10,
   }
 })
-
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {
