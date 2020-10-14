@@ -34,6 +34,8 @@ const App = () => {
     flexDirection: flexDirections[flexDirection],
     justifyContent: justifyContents[justifyContent],
     alignItems: alignItemsArr[alignItems],
+    direction: directions[direction],
+    wraps: wraps[wrap],
   }
 
 
@@ -105,13 +107,13 @@ const App = () => {
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE DIRECTION"
-              onPress={() => console.log("press 4")                
+              onPress={() => changeSetting(direction, directions, setDirection)                     
               }
             />
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE FLEX WRAP"
-              onPress={() => console.log("press 5")                
+              onPress={() => changeSetting(wrap, wraps, setWrap)                 
               }
             />
           </View>
