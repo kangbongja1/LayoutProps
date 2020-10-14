@@ -33,14 +33,24 @@ const App = () => {
 
   const directions = ['inherit', 'ltr', 'rtl'];
 
-  const [flexDirection, setFlexDirection] = useState(1);
+  const [flexDirection, setFlexDirection] = useState(0);
   const [justifyContent, setJustifyContent] = useState(0);
   const [alignItems, setAlignItems] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [wrap, setWrap] = useState(0
+  const [wrap, setWrap] = useState(0);
 
+  const Square = () => {
+    const sqStyle = {
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+            
+    };
+    return <view style={sqStyle}/>;
+  }
 
-
+   
+    
   return (
     <>
       <View style={{ paddingTop: Constants.statusBarHeight}} />
@@ -124,5 +134,13 @@ const styles = StyleSheet.create({
     padding: 10,
   }
 })
+
+
+const randomHexColor = () => {
+  return '#000000'.replace(/0/g, ()=>{
+    return (~~(Math.random())*16).toString(16);
+  });
+}
+
 
 export default App;
