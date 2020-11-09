@@ -1,7 +1,6 @@
 import React from 'react';
-import MainStackNavigaor from './routes/MatinStackNavigator';
+import MainStackNavigator from './routes/MainStackNavigator';
 
 export default function App() {
-  return <MainStackNavigaor />
+  return <MainStackNavigator />
 }
-

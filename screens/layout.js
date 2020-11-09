@@ -59,8 +59,8 @@ const Layout = () => {
     }
     console.log(options[value]);
   };
- 
-  
+
+
   const Square = () => {
     const sqStyle = {
       width: 50,
@@ -85,7 +85,7 @@ const Layout = () => {
         <Text> you </Text>
 
       </View>
-      
+
       <ScrollView style={[styles.container]}>
         <View style={[styles.controlSpace]}>
           <View style={styles.buttonView}>            
@@ -94,7 +94,7 @@ const Layout = () => {
               }
             />
           </View>
-          
+
           <View style={styles.buttonView}>            
             <Button title="CHANGE JUSTIFY CONTENT"
               onPress={() => changeSetting(justifyContent, justifyContents, setJustifyContent)
@@ -167,4 +167,4 @@ const randomHexColor = () => {
   });
 };
 
-export default Layout;
+export default Layout
