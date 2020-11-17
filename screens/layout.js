@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {Image, Text, Button, View, StyleSheet, ScrollView} from 'react-native';
 import Constants from 'expo-constants';
+import { TextInput } from 'react-native-gesture-handler';
 
 
-const Layout = () => {
+const Layout = (props) => {
+  const {navigation} = props ;
 
   const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
   const justifyContents = [
@@ -50,15 +52,17 @@ const Layout = () => {
                   
                 }
   */
+  
+ const changeSetting = (value, options, setterfunction) => {
+  if (value == options.length - 1) {
+    setterfunction(0);      
+  } else {
+    setterfunction(value + 1);
+  }
+  console.log(options[value]);
+  
+};
 
-  const changeSetting = (value, options, setterfunction) => {
-    if (value == options.length - 1) {
-      setterfunction(0);      
-    } else {
-      setterfunction(value + 1);
-    }
-    console.log(options[value]);
-  };
 
 
   const Square = () => {
@@ -92,7 +96,11 @@ const Layout = () => {
             <Button title="CHANGE FLEX DIRECTION"
               onPress={() => changeSetting(flexDirection, flexDirections, setFlexDirection)
               }
+              
             />
+              <Text>{flexDirections[flexDirection]}</Text>
+     
+             
           </View>
 
           <View style={styles.buttonView}>            
@@ -100,35 +108,52 @@ const Layout = () => {
               onPress={() => changeSetting(justifyContent, justifyContents, setJustifyContent)
               }
             />
+            <Text>{justifyContents[justifyContent]}
+            </Text>
           </View>
+          
           <View style={styles.buttonView}>
             <Button title="CHANGE ALIGN ITEMS"
               onPress={() => changeSetting(alignItems, alignItemsArr, setAlignItems)                
               }
             />
+            <Text>{alignItemsArr[alignItems]}</Text>
           </View>
+
           <View style={styles.buttonView}>
             <Button title="CHANGE DIRECTION"
               onPress={() => changeSetting(direction, directions, setDirection)                     
               }
             />
+            <Text>{directions[direction]}</Text>
           </View>
+
           <View style={styles.buttonView}>
             <Button title="CHANGE FLEX WRAP"
               onPress={() => changeSetting(wrap, wraps, setWrap)                 
               }
             />
+            <Text>{wraps[wrap]}</Text>
+
           </View>
           <View style={styles.buttonView}>
             <Button title="ADD SQUARE"
-              onPress={() => console.log("press 6")                
+                onPress={() =>
+                  setSquares([...squares, Square()])       
               }
             />
           </View>
           <View style={styles.buttonView}>
             <Button title="DELETE SQUARE"
-              onPress={() => console.log("press 7")                
+              onPress={() => setSquares(squares.filter((v, i) => i != squares.length - 1))  
               }
+            />
+            </View>
+          <View style={styles.buttonView}>
+            <Button title="Go To Home"
+              onPress={() =>
+                navigation.navigate('Home')
+                }               
             />
           </View>
         </View>
@@ -158,6 +183,11 @@ const styles = StyleSheet.create({
   buttonView: {
     width: '50%',
     padding: 10,
+  },
+  stateView: {
+   flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: '#F5F5F5',
   }
 })
 

@@ -6,30 +6,30 @@ import Layout from "../screens/layout"
 import Home from "../screens/home"
 import NextScreen from "../screens/NextScreen"
 
-const Stack = createStackNavigator();
+const Nav = createStackNavigator();
 
 function MainStackNavigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Home' >
-                <Stack.Screen 
+            <Nav.Navigator initialRouteName='Home' >
+                <Nav.Screen 
                     name = "Home" 
                     component = {Home} 
                     options={{ title: 'home Screen'}} 
                 />
 
-                <Stack.Screen 
+                <Nav.Screen 
                     name = "Layout" 
                     component = {Layout} 
                     options={{ title: 'layout Screen'}} 
                 />
 
-                <Stack.Screen 
+                <Nav.Screen 
                     name = "NextScreen" 
                     component = {NextScreen} 
                     options={{ title: 'NextScreen'}} 
                 />      
-            </Stack.Navigator>
+            </Nav.Navigator>
         </NavigationContainer>
 
     )
