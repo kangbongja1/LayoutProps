@@ -21,9 +21,6 @@ function Home({navigation}) {
             <Text style={styles.buttonText}>Go To Layout</Text>
 
             </TouchableOpacity>
-
-            
-
              <Button
                 title="NextScreen"
                 onPress={() => navigation.navigate('NextScreen')}

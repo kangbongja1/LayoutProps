@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Layout from "../screens/layout"
 import Home from "../screens/home"
 import NextScreen from "../screens/NextScreen"
+import Weather from "../screens/weather"
 
 const Tab = createBottomTabNavigator();
 
@@ -28,6 +29,12 @@ function MainTabNavigator(){
                 name = "NextScreen" 
                 component = {NextScreen} 
                 options={{ title: 'NextScreen'}} 
+            />      
+            
+            <Tab.Screen 
+                name = "weather" 
+                component = {Weather} 
+                options={{ title: 'weather screen'}} 
             />      
         </Tab.Navigator>
     </NavigationContainer>
